@@ -1,0 +1,141 @@
+@import "~bootstrap/scss/bootstrap";
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 2% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50% !important;
+  border-radius: 1em;
+}
+
+.detail_dl{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.detail_dl_header {
+  border: 1px solid black;
+}
+
+#dynamicTasklistSelect3 {
+  justify-self: center;
+}
+
+
+.spin {
+  animation:spin 2s linear infinite;
+  -webkit-animation: spin 4s infinite linear;
+}
+
+@-webkit-keyframes spin {
+  0%  {-webkit-transform: rotate(0deg);}
+  100% {-webkit-transform: rotate(360deg);}
+}
+
+/* -------------- Color admin ------------------ */
+
+.panel-body{
+  display: grid;
+  justify-items: center;
+}
+
+#reportrange {
+  width: 18em;
+  margin: 1em;
+  break-after: always;
+}
+
+.project {
+  text-align: center !important;
+}
+
+.project td {
+  vertical-align: baseline !important;
+}
+.project label {
+  margin:0 !important;
+}
+
+.form_project{
+  width:100%;
+  padding:2em;
+}
+
+.form-check-label{
+  margin-right: 3em !important;
+}
+
+.interval{
+  background: #fff;
+  cursor: pointer;
+  margin-bottom: 1em;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  width: 16em;
+}
+
+#collection_user_users > div > div {
+  display: flex;
+  flex-direction: row;
+}
+
+#collection_user_users input, #collection_user_users label{
+  margin-right: 1em;
+}
+
+#collection_user_users > div > label{
+  display: none;
+}
+
+#collection_user_users img {
+  width: 2em;
+}
+
+#indexPanel{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.creating{
+  padding: 3px 15px;
+}
+
+.creating::after{
+  content: none !important;
+}
+
+.creating:hover{
+  background-color: #333;
+}
+
+.actionDiv {
+  margin: 0 auto;
+  width: 10em;
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+}
+
+form[name="correction"]{
+  margin-top: 1em;
+}
+
+#limits input{
+  margin-left: 1em;
+  width: 6em;
+}

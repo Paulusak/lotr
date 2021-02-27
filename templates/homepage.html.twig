@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h1>Main Menu</h1>
+    {# <a href="{{ path('collection') }}" class="btn btn__block btn-primary" role="button">Kolekce</a> #}
+    <a href="{{ path('database') }}" class="btn btn__block btn-primary" role="button">Databáze karet</a>
+    {# <a href="{{ path('builder') }}" class="btn btn__block btn-primary" role="button">Deck builder</a> #}
+    <a href="{{ path('logout') }}" class="btn btn__block btn-primary" role="button">Odhlásit se</a>
+{% endblock %}

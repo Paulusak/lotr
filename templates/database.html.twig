@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h1>Database</h1>
+    <a href="{{ path('homepage') }}" class="btn btn__block btn-primary" role="button">Main menu</a>
+    <a href="{{ path('logout') }}" class="btn btn__block btn-primary" role="button">Odhlásit se</a>
+
+    <div>
+        {{ form_start(form) }}
+        {{ form_row(form.code) }}
+        {{ form_row(form.photo) }}
+        {{ form_row(form.rarity) }}
+        {{ form_row(form.culture) }}
+        {{ form_row(form.keywords) }}
+        {{ form_row(form.setOfCard) }}
+        {{ form_row(form.strength) }}
+        {{ form_row(form.twilight) }}
+        {{ form_row(form.save) }}
+        {{ form_end(form) }}
+    </div>
+
+    <div>
+        {% for card in cards %}
+            <img src="{{ asset('images/cards/' ~ card.photo ~ '.jpg') }}" style="width: 7em"/>
+        {% endfor %}
+    </div>
+
+{% endblock %}
+ {% block javascripts %}
+    {{ parent() }}
+ {% endblock %}

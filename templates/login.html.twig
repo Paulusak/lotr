@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="utf-8" />
+    <title>{% block title %}Card system - login{% endblock %}</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+        <!-- ================== BEGIN BASE CSS STYLE ================== -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+        <!-- ================== END BASE CSS STYLE ================== -->
+    {% endblock %}
+    {{ encore_entry_script_tags('app') }}
+</head>
+<body>
+<!-- begin #page-loader -->
+<div id="page-loader" class="fade show">
+    <span class="spinner"></span>
+</div>
+<!-- end #page-loader -->
+
+<!-- begin #page-container -->
+<div id="page-container" class="fade">
+    <div class="login login-v1">
+        <!-- begin login-container -->
+        <div class="login-container">
+            <!-- begin login-header -->
+            <div class="login-header">
+                <div class="brand">
+                    <img src="{{ asset('images/ring.png') }}" style="width: 2em">
+                    <b style="margin-left: 1ex;">Card System</b></a>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-lock"></i>
+                </div>
+            </div>
+            <div class="login-body">
+                <!-- begin login-content -->
+                <div class="login-content">
+                    <form method="post" class="margin-bottom-0">
+                        {% if error %}
+                            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                        {% endif %}
+
+                        {% if app.user %}
+                        <div class="text-center">
+                            <p>You are logged in as <strong>{{ app.user.username }}</strong></p>
+                        </div>
+                        <div class="text-center mt-3">
+                            <a href="{{ path('app_logout') }}" class="btn btn-secondary">Logout</a>
+                        </div>
+                        {% else %}
+                        <div class="form-group">
+                            <label for="inputEmail" class="col-form-label required">E-mail</label>
+                            <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" placeholder="" required autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword" class="col-form-label required">Heslo</label>
+                            <input type="password" name="password" id="inputPassword" class="form-control" placeholder="" required>
+                        </div>
+                        <div class="form-actions">
+                            <button class="btn btn__block btn-primary" type="submit">
+                                Přihlásit
+                            </button>
+                            <a href="{{ path('register') }}" class="btn btn__block btn-primary" role="button">Registrovat</a>
+                        </div>
+                            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                        {% endif %}
+                    </form>
+                </div>
+                <!-- end login-content -->
+            </div>
+            <!-- end login-body -->
+        </div>
+        <!-- end login-container -->
+    </div>
+    <a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top">
+        <i class="fa fa-angle-up"></i></a>
+    <!-- end scroll to top btn -->
+</div>
+<!-- end page container -->
+
+{% block javascripts %}
+    <!-- ================== BEGIN BASE JS ================== -->
+    {{ encore_entry_script_tags('app') }}
+    <!-- ================== END BASE JS ================== -->
+{% endblock %}
+
+
+</body>
+</html>
