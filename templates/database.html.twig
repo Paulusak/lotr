@@ -1,9 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block body %}
     <h1>Database</h1>
-    <a href="{{ path('homepage') }}" class="btn btn__block btn-primary" role="button">Main menu</a>
-    <a href="{{ path('logout') }}" class="btn btn__block btn-primary" role="button">Odhlásit se</a>
-
     <div>
         {{ form_start(form) }}
         {{ form_row(form.code) }}

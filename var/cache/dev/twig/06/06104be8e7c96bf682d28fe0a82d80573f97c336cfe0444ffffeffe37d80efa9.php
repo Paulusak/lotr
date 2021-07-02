@@ -65,17 +65,7 @@ class __TwigTemplate_892547a0d07b55bbb7f808542b1a443138afe8bbcea3d61d03e4e7bd547
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 3
-        echo "    <h1>Main Menu</h1>
-    ";
-        // line 5
-        echo "    <a href=\"";
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("database");
-        echo "\" class=\"btn btn__block btn-primary\" role=\"button\">Databáze karet</a>
-    ";
-        // line 7
-        echo "    <a href=\"";
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logout");
-        echo "\" class=\"btn btn__block btn-primary\" role=\"button\">Odhlásit se</a>
+        echo "    <h1>Hlavní stránka</h1>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -97,18 +87,14 @@ class __TwigTemplate_892547a0d07b55bbb7f808542b1a443138afe8bbcea3d61d03e4e7bd547
 
     public function getDebugInfo()
     {
-        return array (  76 => 7,  71 => 5,  68 => 3,  58 => 2,  35 => 1,);
+        return array (  68 => 3,  58 => 2,  35 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'base.html.twig' %}
 {% block body %}
-    <h1>Main Menu</h1>
-    {# <a href=\"{{ path('collection') }}\" class=\"btn btn__block btn-primary\" role=\"button\">Kolekce</a> #}
-    <a href=\"{{ path('database') }}\" class=\"btn btn__block btn-primary\" role=\"button\">Databáze karet</a>
-    {# <a href=\"{{ path('builder') }}\" class=\"btn btn__block btn-primary\" role=\"button\">Deck builder</a> #}
-    <a href=\"{{ path('logout') }}\" class=\"btn btn__block btn-primary\" role=\"button\">Odhlásit se</a>
+    <h1>Hlavní stránka</h1>
 {% endblock %}
 ", "homepage.html.twig", "/home/paulusak/card_system/card_system/templates/homepage.html.twig");
     }

@@ -1,17 +1,112 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Card system{% endblock %}</title>
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+<html lang="cs">
+<head>
+    <meta charset="utf-8" />
+    <title>{% block title %}Card System{% endblock %}</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.png') }}"/>
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+        <!-- ================== BEGIN BASE CSS STYLE ================== -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+        <!-- ================== END BASE CSS STYLE ================== -->
+    {% endblock %}
+    {{ encore_entry_script_tags('app') }}
+</head>
+<body>
+<!-- begin #page-loader -->
+<div id="page-loader" class="fade show">
+    <span class="spinner"></span>
+</div>
+<!-- end #page-loader -->
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-    </head>
-    <body>
+<!-- begin #page-container -->
+<div id="page-container" class="page-container fade page-sidebar-fixed page-header-fixed">
+    <!-- begin #header -->
+    <div id="header" class="header navbar-default">
+        <!-- begin navbar-header -->
+        <div class="navbar-header">
+            <a href="{{ path('database') }}" class="navbar-brand"><img src="{{ asset('images/ring.png') }}" style="width: 2em"><b>Card system</b></a>
+            <button type="button" class="navbar-toggle" data-click="sidebar-toggled">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <!-- end navbar-header -->
+        <!-- begin header-nav -->
+        <ul class="navbar-nav navbar-right">
+            <li class="dropdown navbar-user">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <div class="image image-icon bg-black text-grey-darker">
+                        <i class="fa fa-user"></i>
+                    </div>
+                    <span class="d-none d-md-inline">{{ app.user.getUsername() }}</span></b>
+                </a>
+                {% if is_granted('ROLE_USER')%}
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a href="{{ path('logout')}}" class="dropdown-item">Odhlásit</a>
+                    </div>
+                {% else %}
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a href="{{ path('login') }}" class="dropdown-item">Přihlášení</a>
+                </div>
+            {% endif %}
+            </li>
+        </ul>
+        <!-- end header-nav -->
+    </div>
+    <!-- end #header -->
+
+    <!-- begin #sidebar -->
+    <div id="sidebar" class="sidebar">
+        <!-- begin sidebar scrollbar -->
+        <div data-scrollbar="true" data-height="100%">
+            <!-- begin sidebar user -->
+            <!-- begin sidebar nav -->
+            <ul class="nav"><li class="nav-header">Navigation</li>
+                <li>
+                    <a href="{{ path('database') }}">
+                        <i class="fa fa-file-invoice"></i>
+                        <span>Databáze</span>
+                    </a>
+                </li>
+                <!-- begin sidebar minify button -->
+                <li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="fa fa-angle-double-left"></i></a></li>
+                <!-- end sidebar minify button -->
+            </ul>
+            <!-- end sidebar nav -->
+        </div>
+        <!-- end sidebar scrollbar -->
+    </div>
+    <div class="sidebar-bg"></div>
+    <!-- end #sidebar -->
+
+    <!-- begin #content -->
+    <div id="content" class="content">
+        <!-- begin breadcrumb -->
+        <!-- end breadcrumb -->
+        <!-- begin page-header -->
         {% block body %}{% endblock %}
-    </body>
+        <!-- end panel -->
+    </div>
+    <!-- end #content -->
+
+    <!-- begin scroll to top btn -->
+    <a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
+    <!-- end scroll to top btn -->
+</div>
+<!-- end page container -->
+
+{% block javascripts %}
+    <!-- ================== BEGIN BASE JS ================== -->
+    <script src="{{ asset('jquery.js') }}"></script>
+    {{ encore_entry_script_tags('app') }}
+    <!-- ================== END BASE JS ================== -->
+{% endblock %}
+
+
+</body>
 </html>
